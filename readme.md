@@ -66,6 +66,9 @@ Most of the dimension tables around immigrations fact table are extracted from t
 |-- number_of_veterans: number of veterans<br />
 |-- number_of_foreign_born: number of foreign born<br />
 
+## Tools and Technologies
+Python is used as primary programming language. All the files were parsed using pyspark library as it can handle multiple format and has faster data processing capabilities. `spark-sas7bdat` library was used to parse the SAS file pyspark. Apache spark can handle such large amount of data and can scale as the data size is increased. I used Spark SQL as well to create final immigration and demographics table as I had to join different dataframe together to create the final table and using SQL syntax is a little easier and more readable. The final output was save in parquet format which can be further processed for analytical purposes.
+
 ## Addressing Other Scenarios
 - **The data was increased by 100x.**
 We can use a cluster manager and increase the number of nodes depending on the amount of data.
