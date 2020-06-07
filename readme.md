@@ -13,7 +13,7 @@ The following datasets were included in the project.
 - **U.S. City Demographic Data**: This data comes from OpenSoft.
 - **Airport Code Table**: This is a simple table of airport codes and corresponding cities.
 
-As mentioned above, for the purpose of this project I used *I94 Immigration Data* and *U.S. City Demographic Data**
+As mentioned above, for the purpose of this project, I used *I94 Immigration Data* and *U.S. City Demographic Data*
 
 ## Data Exploration
 The Immigration Dataset is a huge one. The data is just for year 2016 divided into 12 file, one for each month. Each file contains around 3 million rows. A data dictionary is included in the workspace called `I94_SAS_Labels_Descriptions.SAS`. It contains defination of various fields in the schema and also helps to understands that dataset. This dictionary can be used to create different dimension tables around the immigration data table. More detials below.
