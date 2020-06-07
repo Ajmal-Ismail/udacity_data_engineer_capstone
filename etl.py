@@ -12,7 +12,6 @@ config = configparser.ConfigParser()
 config.read('cp.cfg')
 
 SAS_LABELS_DESCRIPTION_FILE_PATH=config.get('PATHS', 'SAS_LABELS_DESCRIPTION_FILE_PATH')
-AIRPORT_CODES_FILE_PATH=config.get('PATHS', 'AIRPORT_CODES_FILE_PATH')
 IMMIGRATION_DATA_PATH=config.get('PATHS', 'IMMIGRATION_DATA_PATH')
 DEMOGRAPHIC_DATA_PATH=config.get('PATHS', 'DEMOGRAPHIC_DATA_PATH')
 OUTPUT_PATH=config.get('PATHS', 'OUTPUT_PATH')
@@ -249,6 +248,13 @@ def main():
     
     # create port demographics dimension table
     port_demographics_table = create_port_demographics_dim_table(spark, cleaned_demographics_df, cleaned_ports_df)
+    
+    # data quality checks
+    if immigration_fact_table.count() == 0:
+        Exception("Something went wrong. No rows returned for immigration table.")
+        
+    if port_demographics_table.count() == 0:
+        Exception("Something went wrong. No rows returned for demographics table.")
     
     # write tables in parquet format
     immigration_fact_table.write.mode('overwrite').partitionBy('year', 'month', 'state_code').parquet(OUTPUT_PATH + "immigrations")
