@@ -13,7 +13,7 @@ The following datasets were included in the project.
 - **U.S. City Demographic Data**: This data comes from OpenSoft.
 - **Airport Code Table**: This is a simple table of airport codes and corresponding cities.
 
-As mentioned above, for the purpose of this project I used *I94 Immigration Data* and *U.S. City Demographic Data**
+As mentioned above, for the purpose of this project, I used *I94 Immigration Data* and *U.S. City Demographic Data*
 
 ## Data Exploration
 The Immigration Dataset is a huge one. The data is just for year 2016 divided into 12 file, one for each month. Each file contains around 3 million rows. A data dictionary is included in the workspace called `I94_SAS_Labels_Descriptions.SAS`. It contains defination of various fields in the schema and also helps to understands that dataset. This dictionary can be used to create different dimension tables around the immigration data table. More detials below.
@@ -37,41 +37,41 @@ Most of the dimension tables around immigrations fact table are extracted from t
 
 ## Data Dictionary
 ### immigraions
-|-- year: 4 digit year
-|-- month: numeric month
-|-- residence_country: i94 country code, refer to `country` table for details
-|-- port: `i94port` code, reference `port` table for details of each code
-|-- arrival_date: date of arrival in U.S.
-|-- mode: code for mode of arrival, see `mode` table for details
-|-- state_code: two letter U.S. state code
-|-- departure_date: departure date from U.S.
-|-- age: age of the immigrant
-|-- visa_type_code: visa type code, refer to `visa` table for details
-|-- occupation: occupation of the immigrant
-|-- gender: gender of immigrant
-|-- birth_year: birth year of immigrant
-|-- allowed_date: Date until the immigrant is allowed to stay in U.S.
-|-- airline: airline code used to arrive in U.S.
-|-- admission_number: admission number
-|-- flight_number: flight number
-|-- visa_type: visa type
+|-- year: 4 digit year<br />
+|-- month: numeric month<br />
+|-- residence_country: i94 country code, refer to `country` table for details<br />
+|-- port: `i94port` code, reference `port` table for details of each code<br />
+|-- arrival_date: date of arrival in U.S.<br />
+|-- mode: code for mode of arrival, see `mode` table for details<br />
+|-- state_code: two letter U.S. state code<br />
+|-- departure_date: departure date from U.S.<br />
+|-- age: age of the immigrant<br />
+|-- visa_type_code: visa type code, refer to `visa` table for details<br />
+|-- occupation: occupation of the immigrant<br />
+|-- gender: gender of immigrant<br />
+|-- birth_year: birth year of immigrant<br />
+|-- allowed_date: Date until the immigrant is allowed to stay in U.S.<br />
+|-- airline: airline code used to arrive in U.S.<br />
+|-- admission_number: admission number<br />
+|-- flight_number: flight number<br />
+|-- visa_type: visa type<br />
 
 ### port_demographics
-|-- port_code: `i94port` code
-|-- city: city name
-|-- state_code: two letter sate code
-|-- total_male_population: total male population
-|-- total_female_population: total female population
-|-- total_population: total population
-|-- number_of_veterans: number of veterans
-|-- number_of_foreign_born: number of foreign born
+|-- port_code: `i94port` code<br />
+|-- city: city name<br />
+|-- state_code: two letter sate code<br />
+|-- total_male_population: total male population<br />
+|-- total_female_population: total female population<br />
+|-- total_population: total population<br />
+|-- number_of_veterans: number of veterans<br />
+|-- number_of_foreign_born: number of foreign born<br />
 
 ## Addressing Other Scenarios
 - **The data was increased by 100x.**
 We can use a cluster manager and increase the number of nodes depending on the amount of data.
 
 - **The pipelines would be run on a daily basis by 7 am every day.**
-To run the ETL processes daily, we should schedule our etl job either with `Airflow` or some other worflow orchestration frameworks daily at 7 am.
+To run the ETL processes daily, we should schedule our etl job either with `Airflow` or some other workflow orchestration frameworks daily at 7 am.
 
 - **The database needed to be accessed by 100+ people.**
 The data is available in the parquet format in the output. This data can be further loaded into redshift cluster to access by 100+ people. We can increase the nodes of our redshift cluster ans the number of people increases.
