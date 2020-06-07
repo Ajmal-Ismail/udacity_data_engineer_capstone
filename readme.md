@@ -21,7 +21,7 @@ The U.S. demographics data is quite clean and has only around 3 thousand rows. T
 
 ## Data Model
 I have come up with the following data model for this project.
-{Image}
+![Data Model](data_model_capstone.png)
 Most of the dimension tables around immigrations fact table are extracted from the labels descriptions file. `i94port` is used to create city and state which is then used to reference attach demographics dataset with the immigations.
 
 ## Steps
